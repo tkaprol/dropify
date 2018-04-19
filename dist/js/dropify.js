@@ -37,6 +37,7 @@ function Dropify(element, options) {
         minHeight: 0,
         maxHeight: 0,
         showRemove: true,
+        showDownload: true,
         showLoader: true,
         showErrors: true,
         errorTimeout: 3000,
@@ -49,6 +50,7 @@ function Dropify(element, options) {
             'default': 'Drag and drop a file here or click',
             'replace': 'Drag and drop or click to replace',
             'remove':  'Remove',
+            'download':  'Download',
             'error':   'Ooops, something wrong happended.'
         },
         error: {
@@ -67,6 +69,7 @@ function Dropify(element, options) {
             preview:         '<div class="dropify-preview"><span class="dropify-render"></span><div class="dropify-infos"><div class="dropify-infos-inner"><p class="dropify-infos-message">{{ replace }}</p></div></div></div>',
             filename:        '<p class="dropify-filename"><span class="dropify-filename-inner"></span></p>',
             clearButton:     '<button type="button" class="dropify-clear">{{ remove }}</button>',
+            downloadButton:  '<button type="button" class="dropify-download">{{ download }}</button>',
             errorLine:       '<p class="dropify-error">{{ error }}</p>',
             errorsContainer: '<div class="dropify-errors-container"><ul></ul></div>'
         }
@@ -153,6 +156,12 @@ Dropify.prototype.createElements = function()
         this.clearButton = $(this.settings.tpl.clearButton);
         this.clearButton.insertAfter(this.input);
         this.clearButton.on('click', this.clearElement);
+    }
+
+    if (this.isDisabled === false && this.settings.showDownload === true) {
+        this.downloadButton = $(this.settings.tpl.downloadButton);
+        this.downloadButton.insertAfter(this.input);
+        this.downloadButton.on('click', this.downloadFile);
     }
 
     this.filenameWrapper = $(this.settings.tpl.filename);
@@ -358,6 +367,15 @@ Dropify.prototype.clearElement = function()
         this.input.val('');
         this.resetPreview();
     }
+};
+
+/**
+ * Download the file
+ */
+
+Dropify.prototype.downloadFile = function()
+{
+  
 };
 
 /**
@@ -651,7 +669,6 @@ $.fn[pluginName] = function(options) {
 
     return this;
 };
-
 
 return Dropify;
 }));

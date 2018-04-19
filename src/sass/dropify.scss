@@ -56,7 +56,7 @@ $dropify-font-path:        "../fonts" !default;
     }
 
     &.has-preview {
-        .dropify-clear {
+        .dropify-clear, .dropify-download {
             display: block;
         }
     }
@@ -133,12 +133,11 @@ $dropify-font-path:        "../fonts" !default;
         }
     }
 
-    .dropify-clear {
+    .dropify-clear, .dropify-download {
         display: none;
         position: absolute;
         opacity: 0;
         z-index: 7;
-        top: 10px;
         right: 10px;
         background: none;
         border: 2px solid $dropify-clear-color;
@@ -153,6 +152,14 @@ $dropify-font-path:        "../fonts" !default;
         &:hover {
             background: transparentize($dropify-clear-color, 0.8);
         }
+    }
+
+    .dropify-clear {
+        top: 10px;
+    }
+
+    .dropify-download {
+        bottom: 10px;
     }
 
     .dropify-preview {
@@ -266,7 +273,7 @@ $dropify-font-path:        "../fonts" !default;
     }
 
     &:hover {
-        .dropify-clear {
+        .dropify-clear, .dropify-download {
             opacity: 1;
         }
 
@@ -363,7 +370,7 @@ $dropify-font-path:        "../fonts" !default;
             padding: 40px 0;
         }
 
-        .dropify-clear {
+        .dropify-clear, .dropify-download {
             top: auto;
             bottom: 23px;
             opacity: 1;
