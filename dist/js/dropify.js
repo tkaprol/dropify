@@ -373,9 +373,16 @@ Dropify.prototype.clearElement = function()
  * Download the file
  */
 
-Dropify.prototype.downloadFile = function()
+Dropify.prototype.downloadFile = function(e)
 {
-  
+  if($(e.target).parent().parent().find('.dropify').data('defaultFile') != '') {
+    filePath = $(e.target).parent().parent().find('.dropify').data('defaultFile');
+
+    var link=document.createElement('a');
+    link.href = filePath;
+    link.download = filePath.substr(filePath.lastIndexOf('/') + 1);
+    link.click();
+  }
 };
 
 /**
