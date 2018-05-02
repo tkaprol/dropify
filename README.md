@@ -1,11 +1,13 @@
 ![Dropify](src/images/cover.jpg)
 
-Dropify
+Dropify with Download Button
 =========
 
-Override your input files with style.
+This example extends Dropify to add Download button to Dropify. The button in this version is Dummy and needs an external trigger to initiate download process because of input field never stores filename. 
 
-Demo here : [http://jeremyfagis.github.io/dropify](http://jeremyfagis.github.io/dropify/)
+We used this solution together with another solution which one of our project has. You will need some more development effort to make download button works. 
+
+Original Version of Dropify Demo here : [http://jeremyfagis.github.io/dropify](http://jeremyfagis.github.io/dropify/)
 
 
 ## Dependency
