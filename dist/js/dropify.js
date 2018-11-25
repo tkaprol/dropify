@@ -216,7 +216,7 @@ Dropify.prototype.readFile = function(input)
                 image.onload = function() {
                     _this.setFileDimensions(this.width, this.height);
                     _this.validateImage();
-                    _this.input.trigger(eventFileReady, [true, srcBase64]);
+                    _this.input.trigger(eventFileReady, [_this.errorsEvent.errors.length === 0, srcBase64]);
                 };
 
             }.bind(this);
